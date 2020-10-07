@@ -7,7 +7,7 @@ import { SpaceShipComponent } from './space-ship/space-ship.component';
 
 
 @NgModule({
-    declarations: [HangarComponent, SpaceShipComponent],
+    declarations: [SpaceShipComponent],
     exports: [
         SpaceShipComponent
     ],
