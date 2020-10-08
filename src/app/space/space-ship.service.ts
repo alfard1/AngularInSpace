@@ -32,4 +32,5 @@ export class SpaceShipService {
     ships.splice(shipIndex, 1);
     this.hangarShips.next(ships);
   }
+
 }
