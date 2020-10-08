@@ -9,9 +9,10 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {EngineersRoomComponent} from './engineers-room/engineers-room.component';
 import {SharedModule} from "../shared/shared.module";
 import {DestructionRoomComponent} from './destruction-room/destruction-room.component';
+import {PilotFormComponent} from './pilot-form/pilot-form.component';
 
 @NgModule({
-  declarations: [SpaceShipComponent, PilotComponent, PilotRoomComponent, EngineersRoomComponent, DestructionRoomComponent],
+  declarations: [SpaceShipComponent, PilotComponent, PilotRoomComponent, EngineersRoomComponent, DestructionRoomComponent, PilotFormComponent],
   exports: [
     SpaceShipComponent,
     PilotRoomComponent,

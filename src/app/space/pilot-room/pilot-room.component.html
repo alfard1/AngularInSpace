@@ -4,7 +4,7 @@
            [pilot]="pilot"
            [class.selected]="selectedPilot === pilot">
   <button *ngIf="selectedPilot !== pilot; else deselectButton"
-          class="select-button"  (click)="select(pilot)">
+          class="select-button" (click)="select(pilot)">
     Zaznacz
   </button>
   <ng-template #deselectButton>
@@ -12,4 +12,10 @@
       Odznacz
     </button>
   </ng-template>
+  <button [routerLink]="['pilots', pilot.id]" class="edit-button">
+    Edytuj
+  </button>
 </app-pilot>
+<button [routerLink]="['pilots', 'new']" class="add-button">
+  Dodaj
+</button>
