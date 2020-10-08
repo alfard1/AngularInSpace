@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {SpaceShipService} from "../space-ship.service";
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-destruction-room',
@@ -7,10 +9,18 @@ import {Component, OnInit} from '@angular/core';
 })
 export class DestructionRoomComponent implements OnInit {
 
-  constructor() {
+  spaceShips = this.spaceShipService.hangarShips;
+  shipIndexControl = new FormControl(null);
+
+  constructor(private spaceShipService: SpaceShipService) {
   }
 
   ngOnInit(): void {
+  }
+
+  orderDestruction() {
+    this.spaceShipService.removeShip(this.shipIndexControl.value);
+    this.shipIndexControl.reset();
   }
 
 }
