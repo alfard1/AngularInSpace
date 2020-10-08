@@ -1,22 +1,26 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { SpaceRoutingModule } from './space-routing.module';
-import { HangarComponent } from './hangar/hangar.component';
-import { SpaceShipComponent } from './space-ship/space-ship.component';
-import { PilotComponent } from './pilot/pilot.component';
-import { PilotRoomComponent } from './pilot-room/pilot-room.component';
-
+import {SpaceRoutingModule} from './space-routing.module';
+import {HangarComponent} from './hangar/hangar.component';
+import {SpaceShipComponent} from './space-ship/space-ship.component';
+import {PilotComponent} from './pilot/pilot.component';
+import {PilotRoomComponent} from './pilot-room/pilot-room.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import { EngineersRoomComponent } from './engineers-room/engineers-room.component';
 
 @NgModule({
-    declarations: [SpaceShipComponent, PilotComponent, PilotRoomComponent],
+  declarations: [SpaceShipComponent, PilotComponent, PilotRoomComponent, EngineersRoomComponent],
   exports: [
     SpaceShipComponent,
-    PilotRoomComponent
+    PilotRoomComponent,
+    EngineersRoomComponent
   ],
-    imports: [
-        CommonModule,
-        SpaceRoutingModule
-    ]
+  imports: [
+    CommonModule,
+    SpaceRoutingModule,
+    ReactiveFormsModule
+  ]
 })
-export class SpaceModule { }
+export class SpaceModule {
+}
