@@ -17,9 +17,9 @@ import {HttpClientModule} from "@angular/common/http";
   ],
   imports: [
     BrowserModule,
+    SpaceModule,
     AppRoutingModule,
     A2sCommModule,
-    SpaceModule,
     HttpClientModule
   ],
   exports: [
