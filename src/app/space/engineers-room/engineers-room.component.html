@@ -22,6 +22,8 @@
     <button type="submit" [disabled]="form.invalid || isProducing">Produkuj</button>
     <p *ngIf="isProducing">Trwa produkcja...</p>
   </div>
+
+  <p>Aktualna liczba statków w hangarze: {{shipsCount | async}}</p>
 </form>
 
 
