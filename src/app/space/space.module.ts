@@ -19,10 +19,10 @@ import {PilotFormComponent} from './pilot-form/pilot-form.component';
     EngineersRoomComponent
   ],
   imports: [
-    CommonModule,
+    CommonModule, //ngIf, etc.
     SpaceRoutingModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule // tutaj ładujemy moduły, sharing jest przez SharedModule
   ]
 })
 export class SpaceModule {
