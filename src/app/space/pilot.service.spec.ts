@@ -5,7 +5,7 @@ import {of} from "rxjs";
 import {environment} from "../../environments/environment";
 import {Pilot, PilotAttrs} from "./pilot";
 
-fdescribe('PilotService', () => {
+describe('PilotService', () => {
 
   describe('PilotService', () => {
     let pilotService: PilotService
