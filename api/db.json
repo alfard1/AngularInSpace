@@ -18,5 +18,16 @@
       "lastName": "Simpson",
       "imageUrl": "/assets/pilot3.jpg"
     }
+  ],
+  "forbidden-names": [
+    {
+      "name": "Maruda"
+    },
+    {
+      "name": "Ciamajda"
+    },
+    {
+      "name": "Gapcio"
+    }
   ]
 }

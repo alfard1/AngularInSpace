@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {FormControl, FormGroup} from "@angular/forms";
+import {ActivatedRoute, Router} from "@angular/router";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {map} from "rxjs/operators";
+import {PilotService} from "../pilot.service";
+import {PilotValidators} from "../pilot-validators";
 
 @Component({
   selector: 'app-pilot-form',
@@ -12,7 +14,9 @@ export class PilotFormComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute,
+              private pilotService: PilotService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -21,11 +25,25 @@ export class PilotFormComponent implements OnInit {
       .subscribe((pilot) => {
         this.form = new FormGroup({
           id: new FormControl(pilot.id),
-          firstName: new FormControl(pilot.firstName),
-          lastName: new FormControl(pilot.lastName),
+          firstName: new FormControl(pilot.firstName, {
+            validators: [Validators.required, PilotValidators.pilotName]
+          }),
+          lastName: new FormControl(pilot.lastName, {
+            validators: [Validators.required],
+            asyncValidators: [PilotValidators.pilotForbidden],
+            // updateOn: 'blur' // jeśli chcemy by walidacja odpaliła się po kliknięciu poza pole
+          }),
           imageUrl: new FormControl(pilot.imageUrl)
         });
       });
+  }
+
+  save(): void {
+    const pilotAttrs = this.form.value;
+    this.pilotService.savePilot(pilotAttrs).subscribe(
+      () => this.router.navigate(['../..'], {relativeTo: this.route}),
+      () => alert('Nie udało się zapisać pilota!')
+    );
   }
 
 }
