@@ -1,3 +1,5 @@
+<h1>Hangar</h1>
+
 <div class="hangar-section">
   <app-space-ship *ngFor="let spaceShip of spaceShips | async" [spaceShip]="spaceShip">
     <button *ngIf="selectedPilot && !spaceShip.pilot" (click)="assignPilot(spaceShip)">Pilotuj</button>
